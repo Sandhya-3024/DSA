@@ -14,3 +14,33 @@ Node* reverseDLL(Node * head)
     return prev;
     
 }
+//
+stack<int>st;
+    Node* temp=head;
+    while(temp!=NULL){
+       st.push(temp->data);
+       temp=temp->next;
+    }  
+    temp=head;
+    while(temp!=NULL){
+        temp->data=st.top();
+        st.pop();
+        temp=temp->next;
+    }
+    return head;
+//
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    Node* current=head;
+    Node* prev=NULL;
+     while(current!=NULL){
+         prev=current->prev;
+         current->prev=current->next;
+         current->next=prev;
+         current=current->prev;
+     }
+     return prev->prev;//prev is current->prev
+     //prev->prev is actually mean current
+}
+
