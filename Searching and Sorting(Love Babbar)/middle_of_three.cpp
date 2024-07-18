@@ -14,4 +14,9 @@ int middle(int A, int B, int C){
       }
      return second_largest;
     }
-    
+
+//Approach 2
+    if(A<B && B<C || A>B && B>C) return B;
+    else if(B<A && C>A || A<B && A>C) return A;
+    else if(A<C && B>C || A>C && C>B) return C;
+    }
